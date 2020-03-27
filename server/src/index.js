@@ -9,13 +9,10 @@ const logs = require("./api/logs");
 
 const app = express();
 
-mongoose.connect(
-  `${process.env.DATABASE}`,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("DB Connected!");
-  }
-);
+mongoose.connect("mongodb://localhost:27017/travel-log", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 app.use(morgan("common"));
 app.use(helmet());
